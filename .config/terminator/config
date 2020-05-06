@@ -1,0 +1,43 @@
+[global_config]
+  window_state = hidden
+  extra_styling = False
+  tab_position = bottom
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.93
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[New Layout]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 74960d5c-50eb-4ea1-a39c-0de371f75e27
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 209:42
+      size = 733, 582
+      title = tiger@inspiron:~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 74960d5c-50eb-4ea1-a39c-0de371f75e27
+[plugins]
