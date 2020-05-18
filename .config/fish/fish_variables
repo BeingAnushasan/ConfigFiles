@@ -1,9 +1,14 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_P:sudo\x20pacman
+SETUVAR _fish_abbr_S:sudo\x20systemctl
+SETUVAR _fish_abbr_docker:sudo\x20docker
+SETUVAR _fish_abbr_sp:sudo\x20pacman
+SETUVAR _fish_abbr_ss:sudo\x20systemctl
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
-SETUVAR fish_color_command:ffffd7
+SETUVAR fish_color_command:005fd7
 SETUVAR fish_color_comment:990000
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
@@ -24,7 +29,7 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:\x09\x09\x09Hello\x21\x20Welcome\x20To\x20My\x20Machine\x2e\x0a\x09\x20\x20\x20\x20\x20\x20Do\x20not\x20Proceed\x20Unless\x20You\x20Know\x20What\x20You\x20Are\x20Doing\x21\x21
+SETUVAR fish_greeting:Welcome\x20to\x20My\x20Machine\x20\x21\x20Proceed\x20With\x20Caution\x2e\x2e\x2e
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
