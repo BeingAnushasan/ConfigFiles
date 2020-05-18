@@ -12,6 +12,7 @@ conky.config ={
   double_buffer = true,
   no_buffers = true,
   
+
   text_buffer_size = 32768,
   
   -- CONKY: WINDOW SPECIFICATIONS
