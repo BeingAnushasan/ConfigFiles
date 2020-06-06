@@ -2,6 +2,8 @@
   title_use_system_font = False
   title_font = Sans 11
 [keybindings]
+  copy = <Alt>c
+  paste = <Alt>v
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
