@@ -1,4 +1,5 @@
 FileManager=Thunar
-WebBrowser=chromium
+WebBrowser=midori
+MailReader=thunderbird
 TerminalEmulator=terminator
 

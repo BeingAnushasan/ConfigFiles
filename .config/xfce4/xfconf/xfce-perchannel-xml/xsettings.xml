@@ -2,8 +2,8 @@
 
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
-    <property name="ThemeName" type="string" value="Matcha-dark-sea"/>
-    <property name="IconThemeName" type="string" value="Papirus-Dark"/>
+    <property name="ThemeName" type="string" value="Adapta-Nokto"/>
+    <property name="IconThemeName" type="string" value="Papirus-Light"/>
     <property name="DoubleClickTime" type="int" value="532"/>
     <property name="DoubleClickDistance" type="int" value="8"/>
     <property name="DndDragThreshold" type="int" value="8"/>
@@ -29,10 +29,10 @@
     <property name="KeyThemeName" type="string" value=""/>
     <property name="ToolbarStyle" type="string" value="icons"/>
     <property name="ToolbarIconSize" type="int" value="3"/>
-    <property name="MenuImages" type="bool" value="false"/>
-    <property name="ButtonImages" type="bool" value="false"/>
+    <property name="MenuImages" type="bool" value="true"/>
+    <property name="ButtonImages" type="bool" value="true"/>
     <property name="MenuBarAccel" type="string" value="F10"/>
-    <property name="CursorThemeName" type="string" value="xcursor-breeze"/>
+    <property name="CursorThemeName" type="string" value="Adwaita"/>
     <property name="CursorThemeSize" type="int" value="0"/>
     <property name="DecorationLayout" type="string" value=":minimize,maximize,close"/>
     <property name="IMPreeditStyle" type="string" value=""/>
