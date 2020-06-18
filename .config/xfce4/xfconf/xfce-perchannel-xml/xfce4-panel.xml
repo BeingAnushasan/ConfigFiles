@@ -37,7 +37,11 @@
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="3"/>
+      <property name="miniature-view" type="bool" value="true"/>
+      <property name="workspace-scrolling" type="bool" value="false"/>
+    </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
         <value type="string" value="pnmixer"/>
@@ -52,6 +56,10 @@
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-ordered" type="array">
+        <value type="string" value="discord"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="qbittorrent"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="task manager"/>
         <value type="string" value="blueman"/>
         <value type="string" value="blueman-tray"/>
@@ -59,6 +67,8 @@
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="clipman"/>
         <value type="string" value="networkmanager applet"/>
+      </property>
+      <property name="names-hidden" type="array">
       </property>
     </property>
     <property name="plugin-3" type="string" value="tasklist">
@@ -71,6 +81,7 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance1352;chromium.instance1451;vlc"/>
     </property>
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock">
