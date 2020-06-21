@@ -55,7 +55,8 @@ format_font()
 	esac
 }
 
-
+##Enable Vi mode
+# set -o vi
 
 ##
 ## COLORIZE BASH PROMT
@@ -337,4 +338,4 @@ unset bash_prompt
 
 ### EOF ###
 
-
+#neofetch

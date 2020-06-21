@@ -40,13 +40,14 @@
       <property name="Print" type="string" value="xfce4-screenshooter -fd 1"/>
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -wd 1"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
-      <property name="&lt;Super&gt;Return" type="string" value="terminator"/>
-      <property name="&lt;Super&gt;f" type="string" value="nautilus"/>
       <property name="&lt;Super&gt;i" type="string" value="midori"/>
       <property name="&lt;Super&gt;m" type="string" value="xfce4-popup-whiskermenu"/>
-      <property name="&lt;Alt&gt;space" type="string" value="rofi -show run">
+      <property name="&lt;Alt&gt;space" type="string" value="xfce4-appfinder -c">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
+      <property name="&lt;Super&gt;y" type="string" value="youtube"/>
+      <property name="&lt;Super&gt;Return" type="string" value="terminator"/>
+      <property name="&lt;Super&gt;f" type="string" value="thunar"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
