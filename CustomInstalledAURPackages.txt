@@ -1,0 +1,5 @@
+intellij-idea-ultimate-edition
+lf
+postman-bin
+xdg-su
+zoom
