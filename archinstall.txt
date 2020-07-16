@@ -1,0 +1,316 @@
+
+#This file contains basic instructions for a vanilla Arch Linux installation.  It is not a script, just a set of instructions and commands.
+#Following the installation you should refer to the Arch wiki for post installation configurations.
+#
+#What this file contains are the basic commands to set up a desktop of your choice.  If you are unfamiliar with an
+#Arch Linux install, I would recommend setting up your system over ssh.  This means you can boot the Arch iso and then perform the install
+#from another machine.  The advantage of doing this is that you will be able to copy commands directly into the terminal from this file, or if you prefer
+#from the Arch wiki
+#
+
+###################################
+-- Step 1
+
+Download the Arch iso from https://www.archlinux.org/download/
+
+-- Step 2
+
+-Burn the iso to a CD/DVD or to a usb stick.  If you are coming from Windows I would recommend Rufus to burn to a usb stick. In Linux, dd does the job well.
+-dd needs to be run as root and you should be very careful not to over-write the wrong drive.  The command, sudo fdisk -l, will list the drives connected to your system.
+-Issue the fdisk command after inserting the usb stick.  You are not interested in individual partitions on the device, just the device name itself, e.g. /dev/sdd not /dev/sdd3
+
+-dd is a really simple but effective tool.  It takes the input (if=) from one source (the iso in this case) and does a bite by bite copy to an output (of= ...the usb stick). So for a usb stick
+-called /dev/sdd and an iso file saved in my Downloads directory, I would first cd to Downloads and then issue the following command:
+
+sudo dd bs=4M if=<name of iso file> of=/dev/sdd status=progress oflag=sync
+
+-- Step 3
+
+-Boot the iso on the machine you want to install Arch to.  How you do this will vary from computer to computer, but I bring up a boot menu by hitting my F10 key.
+-Once you boot the process only takes a few seconds and you will find yourself at a root prompt.  No need to login, you can issue commands directly from the prompt.
+
+-- Step 4
+
+-Check you are connected to the internet:
+
+ping archlinux.org
+
+-I would recommend you do this over a wired connection, but you can try to connect wirelessly using the following (as long as your drivers are on the iso):
+
+wifi-menu
+
+-If you are on a wired connection and still have no internet, check the name of the wired interface with ip a, mine is called eno1.  Then issue the following:
+
+ip link set device eno1 up
+
+-- Step 5
+
+-The arch iso comes with ssh already installed and root logins are allowed.  You will need to set a password for root first though.
+
+passwd
+
+-Then start the ssh service
+
+systemctl start sshd.service
+
+-Check the ip address of the arch machine
+
+ip a
+
+-Go to a terminal on the machine you want to use to do the install from and issue the following (change the ip accordingly)
+
+ssh root@192.168.1.156
+
+-- Step 6
+
+-Set your keyboard layout.  US is the default so no need to do anything if that's what you want.  Otherwise, you can list the layouts available with the following command:
+
+ls /usr/share/kbd/keymaps/i386/**/*.map.gz | less
+
+-Once you have found the keymap you want, and I use UK, set it as follows:
+
+loadkeys uk.map.gz
+
+-I also set it up permanently in /etc/vconsole.conf
+
+echo KEYMAP=uk > /etc/vconsole.conf
+
+-- Step 7
+
+-If you want to install a UEFI system, verify that you have booted the iso in the correct mode by issuing the following command:
+
+ls /sys/firmware/efi/efivars
+
+-If the directory exists, you're good to go
+
+-- Step 8
+
+-Begin the install by checking the system clock is accurate
+
+timedatectl set-ntp true
+
+-- Step 9
+
+-Create partitions.  I use cfdisk for this as I find it the most straightforward but feel free to use fdisk or parted if you prefer.
+-For a UEFI system you should create a minimum of two partitions. 1. An esp partition of 550mb with an efi system flag, and 2. a root partition.
+-For a bios installation you only need a single root partition. If you wish, you can create an additional partition for swap. That's what I'm doing
+-Check the name of your drive by issuing fdisk -l. Whatever the drive is called, in the example below I'm using /dev/sda, open cfdisk with the following and proceed to create the partitions.
+
+cfdisk /dev/sda
+
+-For an efi system create a GPT partition table, for a bios/legacy system, create a Dos partition table.
+-For a legacy system, create the swap partition first, and then the route partition.  Make sure to flag the root partition as bootable
+-For an efi system, create the efi partition first (550mb), then the swap, then the root partition
+
+
+-- Step 10
+
+--Format the partitions.  Use fat32 for an esp partition and ext4 (or whatever you prefer for the root). I'm using sda1 for the esp, sda2 for swap, and sda3 for root. e.g
+
+mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3
+
+-If you have a legacy system it could like below:
+
+mkswap /dev/sda1
+mkfs.ext4 /dev/sda2
+
+-- Step 11
+
+-Turn on swap
+
+swapon /dev/sda2 (or whatever your partition is called)
+
+-- Step 12
+
+-Mount the partitions
+
+-Start with the root partition.  e.g.
+
+mount /dev/sda3 /mnt (change the partition name to whatever yours is.  This is the same for bios and efi)
+
+-For efi systems only, create a mount point and mount it on /mnt/boot/efi
+
+mkdir -p /mnt/boot/efi (only necessary for efi)
+mount /dev/sda1 /mnt/boot/efi (only necessary for efi)
+
+
+-- Step 13
+
+-Install the essentials
+
+pacstrap /mnt base base-devel linux linux-firmware nano less dialog wpa_supplicant dhcpcd sudo reflector pacman-contrib usbutils pciutils
+
+-- Step 14
+
+-Create fstab
+
+genfstab -U /mnt >> /mnt/etc/fstab  (Check creation with cat /mnt/etc/fstab)
+
+-- Step 15
+
+-Chroot into the new system
+
+arch-chroot /mnt
+
+-- Step 16
+
+-Set the time Zone. -Check available zones with ls /usr/share/zoneinfo/ Mine is Europe/London, then create a symbolic link to /etc/localtime
+
+ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+
+-- Step 17
+
+- Generate /etc/adjtime, assuming the hardware clock is set to utc
+
+hwclock --systohc
+
+-- Step 18
+
+-Set up localisation.  Find your locale by opening /etc/locale.gen and uncomment the entry you need.  Mine is en_GB.UTF-8 UTF-8.  Alternatively:
+
+echo en_GB.UTF-8 UTF-8 >> /etc/locale.gen
+
+-Then run
+
+locale-gen
+
+-Then save your locale to /etc/locale.conf.  You don't need the last UTF-8, e.g.
+
+echo LANG=en_GB.UTF-8 > /etc/locale.conf
+
+-Then export the locale
+
+export LANG=en_GB.UTF-8
+
+-- Step 19
+
+-Set up network and hosts. Decide on a hostname (I've chosen otbarch) and do this:
+
+echo otbarch > /etc/hostname
+
+-Then edit your hosts file and insert the following (remember it's the host name you created in the last step). Use nano /etc/hosts
+
+127.0.0.1 localhost
+::1		  localhost
+127.0.1.1 otbarch.localdomain otbarch
+
+-- Step 20
+
+- Create a new initramfs -not essential, but I always do it to check the kernel was installed properly
+
+mkinitcpio -P
+
+-- Step 21
+
+-Create a normal user. I'm calling mine otb
+
+useradd -m -G sys,wheel,users,adm,log -s /bin/bash otb
+
+-Create a password
+
+passwd otb (you will get asked to input it twice)
+
+--Setup sudo
+
+EDITOR=nano visudo 	(Uncomment the line that states "Uncomment to allow members of group wheel to execute any command")
+
+-- Step 22
+
+- Sync repos, optimise mirror list, and enable multilib
+
+-Uncomment the two lines that say [multilib] and include = /etc/pacman.d/mirrorlist
+
+nano /etc/pacman.conf 		
+
+-Optimise mirrors. Change the entry below to represent your country:
+
+reflector --country 'United Kingdom' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+-Sync the repos
+
+pacman -Syy 	
+
+-- Step 23
+
+-Install grub packages. efibootmgr is only needed for efi systems
+
+pacman -S grub efibootmgr os-prober
+
+-Then install grub. For efi:
+
+grub-install --target=x86_64-efi --bootloader-id=grub --efi-directory=/boot/efi
+
+-Or for bios:
+
+grub-install --target=i386-pc /dev/sda 
+
+-Then create the grub configuration file
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+-- Step 24
+
+-At this stage you can reboot if you wish and continue from there.  However, I tend to get everything that I want done in one shot.  So here we go
+
+-- Step 25
+
+-Install some essential packages
+
+pacman -S xorg xorg-apps xorg-server xorg-drivers xterm mesa linux-headers xdg-user-dirs fuse2 fuse3 ntfs-3g exfat-utils pulseaudio gvfs dkms haveged git unrar unzip htop lsb-release polkit man-db man-pages firefox
+
+-Install Network Manager, Printing, a Display Manager and some fonts
+
+pacman -S cups system-config-printer foomatic-db-engine foomatic-db-ppds foomatic-db-nonfree-ppds gutenprint ghostscript networkmanager network-manager-applet lightdm lightdm-gtk-greeter ttf-ubuntu-font-family ttf-dejavu ttf-bitstream-vera ttf-liberation noto-fonts
+
+
+-- Step 26
+
+-Install a Desktop environment
+
+-Choose your environment, e.g.
+pacman -S mate mate-extra
+pacman -S xfce4 xfce4-goodies
+pacman -S plasma-desktop
+pacman -S lxqt breeze-icons
+
+
+-- Step 27 Enable services
+
+systemctl enable lightdm.service
+systemctl enable NetworkManager.service
+systemctl enable org.cups.cupsd.service
+
+
+-- Step 27
+
+-Reboot by exiting from the chroot environment and then unmounting your efi partition followed by your root partition
+
+exit
+umount /dev/sda1
+umount /dev/sda3
+shutdown -r now
+
+-- Step 28
+
+-Install yay and Pamac
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -S pamac-aur
+
+--Step 29
+
+-Install microcode, either:
+
+pacman -S intel-ucode
+
+-or
+
+pacman -S amd-ucode
+
+--Step 30
+
+-Themes, codecs and packages are now up to you. Enjoy
