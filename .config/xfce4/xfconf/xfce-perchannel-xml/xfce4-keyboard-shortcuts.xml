@@ -42,11 +42,11 @@
       <property name="&lt;Primary&gt;&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
       <property name="&lt;Super&gt;i" type="string" value="midori"/>
       <property name="&lt;Super&gt;m" type="string" value="xfce4-popup-whiskermenu"/>
-      <property name="&lt;Alt&gt;space" type="string" value="xfce4-appfinder -c">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
       <property name="&lt;Super&gt;y" type="string" value="youtube"/>
       <property name="&lt;Super&gt;Return" type="string" value="terminator"/>
+      <property name="&lt;Alt&gt;space" type="string" value="rofi -show run">
+        <property name="startup-notify" type="bool" value="true"/>
+      </property>
       <property name="&lt;Super&gt;f" type="string" value="thunar"/>
     </property>
   </property>
@@ -146,19 +146,14 @@
       <property name="&lt;Control&gt;F11" type="string" value="workspace_11_key"/>
       <property name="&lt;Control&gt;F12" type="string" value="workspace_12_key"/>
       <property name="&lt;Control&gt;F9" type="string" value="workspace_9_key"/>
-      <property name="&lt;Alt&gt;F10" type="string" value="maximize_window_key"/>
       <property name="&lt;Alt&gt;F11" type="string" value="fullscreen_key"/>
       <property name="&lt;Alt&gt;F12" type="string" value="above_key"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Up" type="string" value="up_workspace_key"/>
       <property name="Escape" type="string" value="cancel_key"/>
       <property name="&lt;Alt&gt;&lt;Shift&gt;Tab" type="string" value="cycle_reverse_windows_key"/>
       <property name="&lt;Alt&gt;Delete" type="string" value="del_workspace_key"/>
-      <property name="&lt;Alt&gt;F4" type="string" value="close_window_key"/>
       <property name="&lt;Shift&gt;&lt;Alt&gt;Page_Down" type="string" value="lower_window_key"/>
       <property name="&lt;Alt&gt;F6" type="string" value="stick_window_key"/>
-      <property name="&lt;Alt&gt;F8" type="string" value="resize_window_key"/>
-      <property name="&lt;Alt&gt;F9" type="string" value="hide_window_key"/>
-      <property name="&lt;Alt&gt;F7" type="string" value="move_window_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Up" type="string" value="move_window_up_key"/>
       <property name="&lt;Control&gt;F5" type="string" value="workspace_5_key"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Left" type="string" value="left_workspace_key"/>
@@ -196,10 +191,19 @@
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Right" type="string" value="move_window_right_workspace_key"/>
       <property name="override" type="bool" value="true"/>
       <property name="Up" type="string" value="up_key"/>
-      <property name="&lt;Super&gt;Up" type="string" value="tile_up_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="tile_down_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
+      <property name="&lt;Super&gt;Up" type="string" value="tile_up_key"/>
+      <property name="&lt;Super&gt;KP_1" type="string" value="tile_up_left_key"/>
+      <property name="&lt;Super&gt;KP_2" type="string" value="tile_up_right_key"/>
+      <property name="&lt;Super&gt;KP_3" type="string" value="tile_down_left_key"/>
+      <property name="&lt;Super&gt;KP_4" type="string" value="tile_down_right_key"/>
+      <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
+      <property name="&lt;Alt&gt;m" type="string" value="move_window_key"/>
+      <property name="&lt;Alt&gt;r" type="string" value="resize_window_key"/>
+      <property name="&lt;Alt&gt;h" type="string" value="hide_window_key"/>
+      <property name="&lt;Super&gt;w" type="string" value="maximize_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">

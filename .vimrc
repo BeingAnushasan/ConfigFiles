@@ -4,7 +4,7 @@ set relativenumber
 set smartindent
 set noswapfile
 set incsearch
-
+set autoindent
 
 "added plugins
 call plug#begin('~/.vim/plugged')

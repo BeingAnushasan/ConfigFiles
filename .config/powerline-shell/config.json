@@ -1,0 +1,22 @@
+{
+  "segments": [
+    "virtual_env",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "git",
+    "root"
+  ],
+  "cwd": {
+    "max_dir_size": 3,
+	    "full_cwd": true,
+    "max_depth": 3 
+  },
+  "vcs": {
+    "show_symbol": true
+  },
+  "battery": {
+  "always_show_percentage": true
+  }
+}

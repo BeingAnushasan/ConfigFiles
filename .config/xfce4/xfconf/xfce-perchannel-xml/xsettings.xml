@@ -27,7 +27,7 @@
     <property name="MonospaceFontName" type="empty"/>
     <property name="IconSizes" type="string" value=""/>
     <property name="KeyThemeName" type="string" value=""/>
-    <property name="ToolbarStyle" type="string" value="icons"/>
+    <property name="ToolbarStyle" type="string" value="both-horiz"/>
     <property name="ToolbarIconSize" type="int" value="3"/>
     <property name="MenuImages" type="bool" value="true"/>
     <property name="ButtonImages" type="bool" value="false"/>
