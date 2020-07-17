@@ -24,10 +24,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-
+#Auto-Start App
 #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id nitrogen --restore
-
+#Compton
+exec --no-startup-id compton
    
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -109,11 +110,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# split orientation
+bindsym $mod+h split h; exec notify-send 'tile horizontally'
+bindsym $mod+v split v; exec notify-send 'tile vertically'
+bindsym $mod+t split toggle 
 
-# split in vertical orientation
-bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -212,8 +213,8 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
