@@ -1,5 +1,5 @@
 app=/usr/bin/chromium
 last_user=
-screenshot_dir=file:///home/tiger/Pictures
+screenshot_dir=file:/home/tiger/Pictures
 action=1
 

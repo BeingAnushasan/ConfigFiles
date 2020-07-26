@@ -73,6 +73,7 @@
     </property>
     <property name="plugin-18" type="string" value="systray">
       <property name="names-ordered" type="array">
+        <value type="string" value="clipman"/>
         <value type="string" value="thunar"/>
         <value type="string" value="task manager"/>
         <value type="string" value="discord"/>
@@ -92,6 +93,15 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-22" type="string" value="pager"/>
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+        <property name="add-primary-clipboard" type="bool" value="true"/>
+      </property>
+      <property name="tweaks" type="empty">
+        <property name="paste-on-activate" type="uint" value="2"/>
+        <property name="never-confirm-history-clear" type="bool" value="false"/>
+      </property>
+    </property>
   </property>
   <property name="configver" type="int" value="2"/>
 </channel>

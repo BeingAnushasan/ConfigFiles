@@ -17,11 +17,11 @@ font pango:DejaVu Sans Mono 10
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango:mono 10
+	font pango:DejaVu Sans Mono 10
 	i3bar_command i3bar
 	position top
 	mode dock
-        status_command i3status
+        status_command i3status #/home/tiger/.config/i3status/mystatusbar #i3status
 }
 
 
@@ -38,6 +38,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id compton  #Compton
 exec --no-startup-id numlockx on  #numlockx
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-clipman
+
+
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -61,16 +65,17 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 
 # Screen brightness controls
- bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"  
- bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
+  
+ bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 
 # #---Gaps---# #
-set $inner_gaps 5
-set $outer_gaps 5 
+set $inner_gaps 4
+set $outer_gaps 4 
 for_window [class="^.*"] border pixel 2
 gaps inner $inner_gaps
 gaps outer $outer_gaps
@@ -85,8 +90,8 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot
 
 #Launch App
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec firefox
 bindsym $mod+f exec  $term -e  ranger
 
@@ -188,7 +193,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 # Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
+bindsym  $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
