@@ -48,8 +48,8 @@ fi
 
 
 #sourced aliases file
-if [ -f ~/.config/bash/.bash_aliases ]; then
-    source ~/.config/bash/.bash_aliases
+if [ -f ~/.config/bash/bash_aliases ]; then
+    source ~/.config/bash/bash_aliases
 fi
 
 xhost +local:root > /dev/null 2>&1

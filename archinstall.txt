@@ -314,3 +314,4 @@ pacman -S amd-ucode
 --Step 30
 
 -Themes, codecs and packages are now up to you. Enjoy
+
