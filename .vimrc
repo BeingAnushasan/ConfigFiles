@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'leafoftree/vim-vue-plugin'
 
 map <C-n> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree  "Keep nerdtree open at start

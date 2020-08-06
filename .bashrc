@@ -2,7 +2,7 @@
 # ~/.bashrc  with powerline
 #
 
-fortune
+fortune -s
 
 [[ $- != *i* ]] && return
 

@@ -18,9 +18,9 @@ general {
 #order += "ethernet _first_"
 order += "disk /"
 order += "memory"
-order += "battery all"
+#order += "battery all"
 #order += "volume master"
-order += "tztime local"
+order += "tztime Asia/Kathmandu"
 
 wireless _first_ {
         format_up = "%essid(%quality) %ip"
@@ -52,16 +52,16 @@ battery all {
 }
 
 disk "/" {
-        format = " %avail"
+        format = "⛁ %avail"
 }
 #
 memory {
-        format = " %used"
+        format = "𔕡 %used"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
-tztime local {
+tztime Asia/Kathmandu {
         #format = "%b-%d(%a) %I:%M%p" 
 	format = "%b-%d(%a) %r" 
 	#format = "%a %d %b,%r |"
