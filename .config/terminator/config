@@ -3,7 +3,7 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_type = transparent
+    background_darkness = 0.78
     cursor_color = "#aaaaaa"
     font = Source Code Pro 12
     show_titlebar = False

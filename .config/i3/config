@@ -16,25 +16,25 @@ font pango:DejaVu Sans Mono 10
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	font pango:DejaVu Sans Mono 10
-	i3bar_command i3bar
-	position top
-	mode dock
-        status_command i3status 
-
- colors {
+#bar {
+#	font pango:DejaVu Sans Mono 10
+#	i3bar_command i3bar
+#	position bottom
+#	mode dock
+#       status_command i3status 
+#
+# colors {
     #    background #353439
-        statusline #7B9F35
-        separator #9FEE00
+#        statusline #7B9F35
+#        separator #9FEE00
  
     #    focused_workspace  #353439 #4B4D46 #9FEE00
     #    active_workspace   #353439 #4B4D46 #7B9F35
     #    inactive_workspace #353439 #4B4D46 #7B9F35
-        urgent_workspace   #353439 #4B4D46 #7B9F35
-    }
-
-}
+#        urgent_workspace   #353439 #4B4D46 #7B9F35
+#    }
+#
+#}
 
 #Colors
 client.focused #555555 #555555 #ffffff #2e9ef4     #CC0000
@@ -43,20 +43,25 @@ client.focused #555555 #555555 #ffffff #2e9ef4     #CC0000
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+
 
 #Auto-Start App
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id picom -b
-exec --no-startup-id numlockx on  #keep numlock on
-exec --no-startup-id clipit
+#exec --no-startup-id numlockx on  #keep numlock on
+#exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
 exec --no-startup-id volumeicon
 #exec --no-startup-id start_conky_maia
 #exec --no-startup-id cbatticon -u 20 -i symbolic -c "poweroff" -l 15 -r 3
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id polybar -r  myBar
+
+
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -109,13 +114,13 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot
 
 #Launch App
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 bindsym $mod+a exec alacritty
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec firefox
 bindsym $mod+f exec  pcmanfm #$term -e  ranger
 bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
-
+bindsym $mod+d exec rofi -show run
 
 
 # kill focused window
@@ -156,7 +161,7 @@ bindsym $mod+t split toggle
 bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -216,7 +221,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 # Set shut down, restart and locking features
-bindsym  $mod+0 mode "$mode_system"
+bindsym  $mod+Shift+q mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -260,4 +265,4 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-focus_follows_mouse no
+#focus_follows_mouse no
