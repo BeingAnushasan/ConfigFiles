@@ -1,2 +1,4 @@
-TerminalEmulator=terminator
-
+FileManager=Thunar
+TerminalEmulator=custom-TerminalEmulator
+WebBrowser=firefox
+MailReader=evolution
