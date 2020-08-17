@@ -19,13 +19,13 @@ font pango:DejaVu Sans Mono 10
 #bar {
 #	font pango:DejaVu Sans Mono 10
 #	i3bar_command i3bar
-#	position bottom
+#	position top
 #	mode dock
 #       status_command i3status 
-#
+
 # colors {
     #    background #353439
-#        statusline #7B9F35
+#       statusline #7B9F35
 #        separator #9FEE00
  
     #    focused_workspace  #353439 #4B4D46 #9FEE00
@@ -48,7 +48,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #Auto-Start App
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id picom -b
-#exec --no-startup-id numlockx on  #keep numlock on
+exec --no-startup-id numlockx on  #keep numlock on
 #exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
 exec --no-startup-id volumeicon
@@ -84,8 +84,8 @@ hide_edge_borders none
 
 
 # Screen brightness controls
-#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
-#bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -117,7 +117,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot
 bindsym $mod+a exec alacritty
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec firefox
-bindsym $mod+f exec  pcmanfm #$term -e  ranger
+bindsym $mod+f exec  thunar	 #$term -e  ranger
 bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
 bindsym $mod+d exec rofi -show run
 

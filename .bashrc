@@ -2,7 +2,6 @@
 # ~/.bashrc  with powerline
 #
 
-fortune -s
 
 [[ $- != *i* ]] && return
 
@@ -98,5 +97,6 @@ export VISUAL="/usr/bin/vim"
 export EDITOR="$VISUAL"
 
 
-
+fortune -s
+#neofetch
 
