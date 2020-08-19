@@ -18,7 +18,7 @@
 ;
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #ff252a36
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #7B9F35
@@ -31,11 +31,11 @@ alert = #bd2c40
 [bar/default]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 24
+height = 21
 ;offset-x = 1%
 ;offset-y = 1%
-;radius = 0
-fixed-center = false
+radius = 5
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,13 +52,15 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = fixed:pixelsize=11;1
-font-1 = "FontAwesome"
-font-2 = "Wuncon Siji"
+font-0 = NotoSans-Regular:size=11;2
+font-1 = MaterialIcons:size=11;2
+font-2 = Termsynu:size=8:antialias=false;-2
+font-3 = FontAwesome:size=11;3
+
 
 modules-left = i3
-;modules-center = mpd
-modules-right = memory cpu temperature filesystem date 
+modules-center = date 
+modules-right = memory cpu temperature filesystem backlight-acpi 
 
 tray-position = right
 tray-padding = 2
@@ -82,7 +84,17 @@ cursor-scroll = ns-resize
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+;strip-wsnumbers = true  ;This will split the workspace name on ':'
+ws-icon-0 = 1; 
+ws-icon-1 = 2;  
+ws-icon-2 = 3;  
+ws-icon-3 = 4;  
+ws-icon-4 = 5;
+ws-icon-5 = 6; 
+ws-icon-6 = 7; 
+ws-icon-7 = 8;♟
+ws-icon-8 = 9;♟
+ws-icon-default = ♟
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -92,16 +104,17 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
@@ -112,8 +125,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
-; label-separator = |
-
+;label-separator = |
 
 
 
@@ -139,6 +151,8 @@ format-underline = #f90000
 ;inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+label =  %percentage%% 
+
 
 [module/arrow1]
 ; grey to Blue
@@ -154,7 +168,7 @@ content-background = #292d3e
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -224,11 +238,11 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 5
-;date =%b-%d(%a)
+date =%b-%d(%a)
 date-alt =%b-%d(%a)
 time = %r
 time-alt =%r
-format-prefix = 
+;format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 label = %date% %time%

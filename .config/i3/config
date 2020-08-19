@@ -9,8 +9,8 @@ set $term  terminator
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
-
+#font pango:DejaVu Sans Mono 10
+font pango:SanFranciscoDisplay Nerd Font:style=Regular:size=14
 
 
 
@@ -113,13 +113,13 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot
 
 #Launch App
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run
 bindsym $mod+a exec alacritty
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec firefox
 bindsym $mod+f exec  thunar	 #$term -e  ranger
 bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
-bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec rofi -show run
 
 
 # kill focused window
@@ -217,6 +217,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# binding particular apps in certain workspace
+assign [class="Terminator"] $ws1
+assign [class="firefox"] $ws2
+assign [class="Thunar"] $ws3
+assign [class="vlc"] $ws4
 
 
 # Set shut down, restart and locking features
