@@ -45,4 +45,4 @@ alias sp="sudo pacman"
 alias update="sudo pacman -Syyu"
 alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
-
+alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'
