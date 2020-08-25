@@ -219,10 +219,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # binding particular apps in certain workspace
-assign [class="Terminator"] $ws1
+#assign [class="Terminator"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
-assign [class="vlc"] $ws4
+assign [class="vlc"] $ws5
+assign [class="teams"] $ws5
+assign [class="*idea*"] $ws4
 
 
 # Set shut down, restart and locking features
@@ -270,4 +272,4 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-#focus_follows_mouse no
+focus_follows_mouse no
