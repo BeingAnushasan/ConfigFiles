@@ -1,4 +1,17 @@
 #config for i3 by Anushasan Poudel
+#  ___   _____    ____             __ _       
+# |_ _| |___ /   / ___|___  _ __  / _(_) __ _ 
+#  | |    |_ \  | |   / _ \| '_ \| |_| |/ _` |
+#  | |   ___) | | |__| (_) | | | |  _| | (_| |
+# |___| |____/   \____\___/|_| |_|_| |_|\__, |
+#                                       |___/ 
+#                      By
+#     _                            _                                   
+#    / \     _ __    _   _   ___  | |__     __ _   ___    __ _   _ __  
+#   / _ \   | '_ \  | | | | / __| | '_ \   / _` | / __|  / _` | | '_ \ 
+#  / ___ \  | | | | | |_| | \__ \ | | | | | (_| | \__ \ | (_| | | | | |
+# /_/   \_\ |_| |_|  \__,_| |___/ |_| |_|  \__,_| |___/  \__,_| |_| |_|
+# 
 
 set $mod Mod4
 set $term  terminator
@@ -225,7 +238,7 @@ assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="vlc"] $ws5
 assign [class="teams"] $ws5
-assign [class="*idea*"] $ws4
+assign [class="^intellij"] $ws4
 
 
 # Set shut down, restart and locking features

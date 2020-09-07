@@ -42,7 +42,9 @@ alias ll="exa -l"
 #alias ll="ls -lh"
 alias ss="sudo systemctl"
 alias sp="sudo pacman"
-alias update="sudo pacman -Syyu"
+alias u="sudo pacman -Syyu"
+alias uu="sudo pacman -Syyu"
 alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
 alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'
+alias mysql='ss restart docker && docker start 7b '
