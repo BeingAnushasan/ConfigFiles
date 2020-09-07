@@ -59,7 +59,7 @@ exec --no-startup-id volumeicon
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id polybar -r  default
+exec --no-startup-id polybar -r default 
 
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -110,6 +110,7 @@ bindsym $mod+Return exec $term
 #Screenshot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot 
 
+exec --no-startup-id redshift-gtk
 
 #Launch App
 # start dmenu (a program launcher)
