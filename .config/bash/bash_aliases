@@ -48,3 +48,17 @@ alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
 alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'
 alias mysql='ss restart docker && docker start 7b '
+
+
+
+# git
+alias addup='git add -u'
+alias add='git add -A'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias pull='git pull origin'
+alias push='git push origin'
+alias status='git status'
