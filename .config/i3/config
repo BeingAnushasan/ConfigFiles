@@ -62,6 +62,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id picom -b
 exec --no-startup-id numlockx on  #keep numlock on
+exec --no-startup-id setxkbmap -option caps:escape
 #exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
 exec --no-startup-id volumeicon
@@ -132,9 +133,8 @@ bindsym $mod+a exec alacritty
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec firefox
 bindsym $mod+f exec  thunar	 #$term -e  ranger
-bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
 #bindsym $mod+d exec rofi -show run
-
+bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
 
 # kill focused window
 bindsym $mod+q kill

@@ -3,6 +3,10 @@
 #
 
 
+PATH="$HOME/.local/bin${PATH:+:${PATH}}"
+
+
+
 [[ $- != *i* ]] && return
 
 colors() {
