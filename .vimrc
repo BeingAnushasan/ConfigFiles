@@ -1,10 +1,12 @@
 syntax on
 set number
+set nocompatible
 set relativenumber
 set smartindent
 set noswapfile
 set incsearch
 set autoindent
+set ruler
 
 "added plugins
 call plug#begin('~/.vim/plugged')
@@ -12,12 +14,12 @@ call plug#begin('~/.vim/plugged')
 " File tree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'leafoftree/vim-vue-plugin'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'leafoftree/vim-vue-plugin'
 
 map <C-n> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree  "Keep nerdtree open at start
+"autocmd VimEnter * NERDTree  "Keep nerdtree open at start
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinSize = 40

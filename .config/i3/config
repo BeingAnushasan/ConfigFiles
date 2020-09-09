@@ -134,7 +134,8 @@ bindsym $mod+a exec alacritty
 bindsym $mod+i exec firefox
 bindsym $mod+f exec  thunar	 #$term -e  ranger
 #bindsym $mod+d exec rofi -show run
-bindsym $mod+y exec  youtube #start mpv with xclip copied link with youtube-dl
+#start mpv with xclip copied link with youtube-dl
+bindsym $mod+y exec youtube
 
 # kill focused window
 bindsym $mod+q kill
