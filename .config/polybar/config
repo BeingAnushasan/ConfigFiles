@@ -54,14 +54,14 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = NotoSans-Regular:size=11;2
-font-1 = MaterialIcons:size=13;2
+font-1 = MaterialIcons:size=14;2
 font-2 = Termsynu:size=8:antialias=false;-2
 font-3 = FontAwesome:size=11;3
 
 
 modules-left = i3
-modules-center = 
-modules-right =  wlan memory cpu temperature filesystem backlight-acpi date 
+modules-center = date 
+modules-right =  wlan memory cpu temperature filesystem backlight-acpi battery  
 
 tray-position = right
 tray-padding = 2
@@ -251,33 +251,38 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label =%{T2}%date% %time%%{T-}
 
-;[module/battery]
-;type = internal/battery
-;battery = BAT0
-;adapter = AC0
-;full-at = 98
-;format-charging = <animation-charging> <label-charging>
-;format-charging-underline = #ffb52a
-;format-discharging = <animation-discharging> <label-discharging>
-;format-discharging-underline = ${self.format-charging-underline}
-;format-full-prefix = " "
-;format-full-prefix-foreground = ${colors.foreground-alt}
-;format-full-underline = ${self.format-charging-underline}
-;
-;ramp-capacity-0 = 
-;ramp-capacity-1 = 
-;ramp-capacity-2 = 
-;ramp-capacity-foreground = ${colors.foreground-alt}
-;
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 99
+format-charging =  <label-charging>
+format-charging-underline = #ffb52a
+label-charging =  %percentage%%
+
+format-discharging =<ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+label-discharging =  %percentage%%
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+label-full = Fully charged
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
 ;animation-charging-foreground = ${colors.foreground-alt}
 ;animation-charging-framerate = 750
-;
-;animation-discharging-0 = 
-;animation-discharging-1 = 
-;animation-discharging-2 = 
+;;
+;animation-discharging-0 = 
+;animation-discharging-1 = 
+;animation-discharging-2 = 
 ;animation-discharging-foreground = ${colors.foreground-alt}
 ;animation-discharging-framerate = 750
 
