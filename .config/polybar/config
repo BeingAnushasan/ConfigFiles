@@ -61,7 +61,7 @@ font-3 = FontAwesome:size=11;3
 
 modules-left = i3
 modules-center = date 
-modules-right =  wlan memory cpu temperature filesystem backlight-acpi battery  
+modules-right =  wlan filesystem memory cpu temperature backlight-acpi battery  
 
 tray-position = right
 tray-padding = 2
@@ -145,14 +145,20 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%{F-} %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-format-underline = #f4bffdc
+format-underline = #9f78e1
 
 
 [module/backlight-acpi]
-;inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
-label =  %percentage%% 
+format = <ramp> <label>
+label =  %percentage%% 
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-foreground = ${colors.foreground-alt}
 
 
 [module/arrow1]
@@ -171,7 +177,7 @@ type = internal/cpu
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #9f78e1
 label = %percentage:2%%
 
 
@@ -204,14 +210,14 @@ interval = 1.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected =%downspeed:9%
+label-connected =%{F#0a81f5}%{F-}%downspeed:9%
 ; %upspeed%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected = No 
+label-disconnected-foreground = #f90000
+;${colors.foreground-alt}
 
 ; Only applies if <ramp-signal> is used
 ramp-signal-0 = 😱
@@ -242,11 +248,11 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-;date =%b-%d(%a)
-date-alt =%b-%d(%a)
+;date = %b-%d(%a)
+date-alt = %b-%d(%a)
 time = %r
-time-alt =%r
-;format-prefix = 
+time-alt = %r
+format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label =%{T2}%date% %time%%{T-}
@@ -258,7 +264,7 @@ adapter = ACAD
 full-at = 99
 format-charging =  <label-charging>
 format-charging-underline = #ffb52a
-label-charging =  %percentage%%
+label-charging = %{F#0a81f5}%{F-} %percentage%%
 
 format-discharging =<ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -267,7 +273,7 @@ label-discharging =  %percentage%%
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
-label-full = Fully charged
+label-full = Fully Charged
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
