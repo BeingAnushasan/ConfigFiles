@@ -237,9 +237,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #assign [class="Terminator"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="jetbrains-idea"] $ws4
 assign [class="vlc"] $ws5
-assign [class="teams"] $ws5
-assign [class="^intellij"] $ws4
+assign [class="Spotify"] $ws6
 
 
 # Set shut down, restart and locking features
