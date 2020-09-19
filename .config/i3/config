@@ -136,6 +136,8 @@ bindsym $mod+f exec  thunar	 #$term -e  ranger
 #bindsym $mod+d exec rofi -show run
 #start mpv with xclip copied link with youtube-dl
 bindsym $mod+y exec youtube
+bindsym $mod+s exec spotify
+
 
 # kill focused window
 bindsym $mod+q kill
@@ -239,7 +241,7 @@ assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="jetbrains-idea"] $ws4
 assign [class="vlc"] $ws5
-assign [class="Spotify"] $ws6
+assign [class="microsoft teams - preview"] $ws6
 
 
 # Set shut down, restart and locking features
