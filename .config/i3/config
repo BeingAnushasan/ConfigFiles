@@ -13,7 +13,8 @@
 # /_/   \_\ |_| |_|  \__,_| |___/ |_| |_|  \__,_| |___/  \__,_| |_| |_|
 # 
 
-set $mod Mod4
+#Mod1=Alt, Mod4=Windows
+set $mod Mod1
 set $term  terminator
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -62,7 +63,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id picom -b
 exec --no-startup-id numlockx on  #keep numlock on
-exec --no-startup-id setxkbmap -option caps:escape
+#exec --no-startup-id setxkbmap -option caps:escape
 #exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
 exec --no-startup-id volumeicon
@@ -123,6 +124,7 @@ bindsym $mod+Return exec $term
 
 #Screenshot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot 
+bindsym $mod+Shift+s  --release exec --no-startup-id i3-scrot 
 
 exec --no-startup-id redshift-gtk
 
@@ -205,6 +207,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -228,6 +231,42 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+
+
+#for numpad 
+set $KP_1 87
+set $KP_2 88
+set $KP_3 89
+set $KP_4 83
+set $KP_5 84
+set $KP_6 85
+set $KP_7 79
+set $KP_8 80
+set $KP_9 81
+set $KP_0 90
+
+bindcode $mod+$KP_1 workspace $ws1
+bindcode $mod+$KP_2 workspace $ws2
+bindcode $mod+$KP_3 workspace $ws3
+bindcode $mod+$KP_4 workspace $ws4
+bindcode $mod+$KP_5 workspace $ws5
+bindcode $mod+$KP_6 workspace $ws6
+bindcode $mod+$KP_7 workspace $ws7
+bindcode $mod+$KP_8 workspace $ws8
+bindcode $mod+$KP_9 workspace $ws9
+bindcode $mod+$KP_0 workspace $ws10
+
+bindcode $mod+Shift+$KP_1 move container to workspace $ws1
+bindcode $mod+Shift+$KP_2 move container to workspace $ws2
+bindcode $mod+Shift+$KP_3 move container to workspace $ws3
+bindcode $mod+Shift+$KP_4 move container to workspace $ws4
+bindcode $mod+Shift+$KP_5 move container to workspace $ws5
+bindcode $mod+Shift+$KP_6 move container to workspace $ws6
+bindcode $mod+Shift+$KP_7 move container to workspace $ws7
+bindcode $mod+Shift+$KP_8 move container to workspace $ws8
+bindcode $mod+Shift+$KP_9 move container to workspace $ws9
+bindcode $mod+Shift+$KP_0 move container to workspace $ws10
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -236,12 +275,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # binding particular apps in certain workspace
-#assign [class="Terminator"] $ws1
+assign [class="Terminator"] $ws1
 assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="jetbrains-idea"] $ws4
+assign [class="code-oss"] $ws1
 assign [class="vlc"] $ws5
-assign [class="microsoft teams - preview"] $ws6
+assign [class="microsoft teams"] $ws6
 
 
 # Set shut down, restart and locking features
