@@ -47,9 +47,11 @@ alias uu="sudo pacman -Syyu"
 alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
 alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'
-alias mysql='ss restart docker && docker start 7b '
+alias mysql='docker start 7b '
 
-
+#quick paths
+alias i3config='vim .config/i3/config'
+alias polybarconfig='vim .config/polybar/config'
 
 # git
 alias addup='git add -u'

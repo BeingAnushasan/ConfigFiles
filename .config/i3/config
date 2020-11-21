@@ -63,6 +63,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore  #Restore Nitrogen for persisting wallpaper
 exec --no-startup-id picom -b
 exec --no-startup-id numlockx on  #keep numlock on
+#exec --no-startup-id alsactl restore #some problem with no sound in earphone
 #exec --no-startup-id setxkbmap -option caps:escape
 #exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
