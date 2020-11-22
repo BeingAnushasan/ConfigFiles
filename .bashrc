@@ -5,6 +5,7 @@
 
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 
+PATH="$HOME/.local/bin/statusbar/${PATH:+:${PATH}}"
 
 
 [[ $- != *i* ]] && return
