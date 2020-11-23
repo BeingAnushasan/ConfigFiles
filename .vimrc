@@ -16,27 +16,26 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'itchyny/lightline.vim'
 "Plug 'leafoftree/vim-vue-plugin'
 
+
+" NerdTree configs
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinSize = 35
+let NERDTreeQuitOnOpen=1
 map <C-n> :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree  "Keep nerdtree open at start
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinSize = 40
-let NERDTreeQuitOnOpen=1
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
-let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 highlight! link NERDTreeFlags NERDTreeDir
 
 
-" colorful indicator
-Plug 'itchyny/lightline.vim'
+"lightline colorful indicator config
+set laststatus=2
+let g:lightline = {'colorscheme': 'darcula'}
 
-
-
-
-
-
+"devicons config
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 
 call plug#end()
 
