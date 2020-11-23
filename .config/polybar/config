@@ -60,7 +60,7 @@ font-2 = Termsynu:size=8:antialias=false;-2
 font-3 = FontAwesome:size=11;3
 
 
-modules-left = i3
+modules-left = i3 polybar-windows
 modules-center = date 
 modules-right =  wlan memory cpu temperature battery  backlight-acpi 
 
@@ -129,7 +129,14 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ;label-separator = |
 
-
+[module/polybar-windows]
+type = custom/script
+;put titlebar.sh in /usr/local/bin
+exec = titlebar.sh
+format = <label>
+label = %output%
+label-padding = 1
+interval = 1
 
 [module/memory]
 type = internal/memory
