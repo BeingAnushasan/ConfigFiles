@@ -7,6 +7,8 @@ set noswapfile
 set incsearch
 set autoindent
 set ruler
+set background=dark
+set mouse=nicr
 
 "added plugins
 call plug#begin('~/.vim/plugged')
