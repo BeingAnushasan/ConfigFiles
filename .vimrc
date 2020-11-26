@@ -10,6 +10,10 @@ set ruler
 set background=dark
 set mouse=nicr
 
+"bash-like-tab-completion-for-file-names
+set wildmode=longest,list,full
+set wildmenu
+
 "added plugins
 call plug#begin('~/.vim/plugged')
 
