@@ -125,7 +125,7 @@ bindsym $mod+Return exec $term
 
 #Screenshot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot 
-bindsym $mod+Shift+s  --release exec --no-startup-id i3-scrot 
+bindsym $mod+Shift+p --release  exec --no-startup-id i3-scrot 
 
 exec --no-startup-id redshift-gtk
 
