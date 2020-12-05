@@ -67,7 +67,7 @@ exec --no-startup-id numlockx on  #keep numlock on
 #exec --no-startup-id setxkbmap -option caps:escape
 #exec --no-startup-id clipit
 #exec --no-startup-id pamac-tray
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 #exec --no-startup-id start_conky_maia
 #exec --no-startup-id cbatticon -u 20 -i symbolic -c "poweroff" -l 15 -r 3
 
@@ -93,10 +93,10 @@ hide_edge_borders none
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 
 # Screen brightness controls
@@ -278,9 +278,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # binding particular apps in certain workspace
 assign [class="Terminator"] $ws1
 assign [class="firefox"] $ws2
-assign [class="Thunar"] $ws3
+assign [class="Thunar"] $ws1
 assign [class="jetbrains-idea"] $ws4
-assign [class="code-oss"] $ws1
+assign [class="code-oss"] $ws3
 assign [class="vlc"] $ws5
 assign [class="microsoft teams"] $ws6
 
