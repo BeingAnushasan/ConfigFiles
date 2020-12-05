@@ -55,14 +55,14 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = NotoSans-Regular:size=11;2
-font-1 = MaterialIcons:size=14;2
-font-2 = Termsynu:size=8:antialias=false;-2
+font-1 = MaterialDesignIcons:size=14;3
+font-2 = Termsynu:size=15:antialias=false;-2
 font-3 = FontAwesome:size=11;3
-
+font-4 = Noto Color Emoji:size=1
 
 modules-left = i3 polybar-windows
 modules-center = date 
-modules-right =  wlan memory cpu temperature battery  backlight-acpi 
+modules-right =  wlan memory cpu temperature battery  backlight-acpi pulseaudio 
 
 tray-position = right
 tray-padding = 2
@@ -138,14 +138,35 @@ label = %output%
 label-padding = 1
 interval = 1
 
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 4
+format-volume =  %{F#0a81f5}<ramp-volume>%{F-} <label-volume>
+label-muted = 󰖁 muted
+label-muted-foreground = ${colors.secondary}
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 󰕿
+ramp-volume-1 = 󰖀
+ramp-volume-2 = 󰕾
+
+; Right and Middle click
+click-right = pavucontrol
+click-middle =  terminator -e 'alsamixer'
+
+
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "󰑭 "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %gb_used%
-
+;
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -159,13 +180,12 @@ format-underline = #4bffdc
 [module/backlight-acpi]
 type = internal/backlight
 card = intel_backlight
-format = <ramp> <label>
+format = %{A5:xbacklight -dec 5:}%{A4:xbacklight -inc 10:}%{u#ff9900}%{+u}<ramp> %{+u}<label> %{A} %{A}
 label =  %percentage%% 
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
+;
+ramp-0 =  
+ramp-1 =  
+ramp-2 =  
 ramp-foreground = ${colors.foreground-alt}
 
 
@@ -183,7 +203,7 @@ content-background = #292d3e
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "󰍛 "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #ffb52a
 label = %percentage:2%%
@@ -281,7 +301,7 @@ label-discharging =  %percentage%%
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
-label-full = Fully Charged
+label-full = 100% 
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
