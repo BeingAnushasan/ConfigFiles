@@ -1,4 +1,5 @@
 syntax on
+set title
 set number
 set nocompatible
 set relativenumber
@@ -9,6 +10,8 @@ set autoindent
 set ruler
 set background=dark
 set mouse=nicr
+
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
