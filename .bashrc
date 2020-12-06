@@ -42,13 +42,13 @@ colors() {
 
 
 #Powerline
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
+#function _update_ps1() {
+#    PS1=$(powerline-shell $?)
+#}
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
 
 
 #sourced aliases file
@@ -99,9 +99,10 @@ ex ()
 }
 
 export VISUAL="/usr/bin/vim"
-export EDITOR="$VISUAL"
+export EDITOR="$VISUAL" 
 
 
 fortune -s
 #neofetch
-
+eval "$(starship init bash)"
+  
