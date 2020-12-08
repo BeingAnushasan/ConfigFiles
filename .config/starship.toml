@@ -15,8 +15,8 @@ scan_timeout = 10
 add_newline = true
 
 [character]
-success_symbol = "[👉](gold)"
-#success_symbol = "[❯❯❯](yellow)"
+#success_symbol = "[👉](gold)"
+success_symbol = "[❯❯❯](yellow)"
 error_symbol = "[✗](bold red)"
 vicmd_symbol = "[vi ➜](bold green)"
 
@@ -38,13 +38,13 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[@](bold white)[$hostname](bold green) in "
+format =  "[@](bold white)[$hostname](bold green) [in](bold black)"
 disabled = false
 
 
 # separate the prompt into two line
 [line_break]
-disabled = false
+disabled = true
 
 #[git_status]
 #conflicted = "🏳"
