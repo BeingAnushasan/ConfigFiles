@@ -10,12 +10,19 @@ set autoindent
 set ruler
 set background=dark
 set mouse=nicr
-
+set showmatch " show matching braces
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
 set wildmenu
+
+" Searching
+set ignorecase " case insensitive searching
+set smartcase " case-sensitive if expresson contains a capital letter
+set hlsearch " highlight search results
+set incsearch " set incremental search, like modern browsers
+
 
 "added plugins
 call plug#begin('~/.vim/plugged')
@@ -40,7 +47,48 @@ highlight! link NERDTreeFlags NERDTreeDir
 
 "lightline colorful indicator config
 set laststatus=2
-let g:lightline = {'colorscheme': 'darcula'}
+"let g:lightline = {'colorscheme': 'darcula'}
+
+let g:lightline = {
+            \   'colorscheme': 'darcula',
+            \   'active': {
+            \       'left': [ [ 'mode', 'paste' ],
+            \               [ 'gitbranch' ],
+            \               [ 'readonly', 'filetype', 'filename' ]],
+            \       'right': [ [ 'percent' ], [ 'lineinfo' ],
+            \               [ 'fileformat', 'fileencoding' ],
+            \               [ 'gitblame', 'currentfunction',  'cocstatus', 'linter_errors', 'linter_warnings' ]]
+            \   },
+            \   'component_expand': {
+            \   },
+            \   'component_type': {
+            \       'readonly': 'error',
+            \       'linter_warnings': 'warning',
+            \       'linter_errors': 'error'
+            \   },
+            \   'component_function': {
+            \       'fileencoding': 'helpers#lightline#fileEncoding',
+            \       'filename': 'helpers#lightline#fileName',
+            \       'fileformat': 'helpers#lightline#fileFormat',
+            \       'filetype': 'helpers#lightline#fileType',
+            \       'gitbranch': 'helpers#lightline#gitBranch',
+            \       'cocstatus': 'coc#status',
+            \       'currentfunction': 'helpers#lightline#currentFunction',
+            \       'gitblame': 'helpers#lightline#gitBlame'
+            \   },
+            \   'tabline': {
+            \       'left': [ [ 'tabs' ] ],
+            \       'right': [ [ 'close' ] ]
+            \   },
+            \   'tab': {
+            \       'active': [ 'filename', 'modified' ],
+            \       'inactive': [ 'filename', 'modified' ],
+            \   },
+            \   'separator': { 'left': '', 'right': '' },
+            \   'subseparator': { 'left': '', 'right': '' }
+        \ }
+
+
 
 "devicons config
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
