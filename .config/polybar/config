@@ -58,7 +58,7 @@ font-0 = NotoSans-Regular:size=11;2
 font-1 = MaterialDesignIcons:size=14;3
 font-2 = Termsynu:size=15:antialias=false;-2
 font-3 = FontAwesome:size=11;3
-font-4 = Noto Color Emoji:size=1
+font-4 = Noto Color Emoji:scale=11;2
 
 modules-left = i3 polybar-windows
 modules-center = date 
@@ -145,14 +145,15 @@ type = internal/pulseaudio
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = true
 interval = 4
-format-volume =  %{F#0a81f5}<ramp-volume>%{F-} <label-volume>
-label-muted = 󰖁 muted
+format-volume = %{u#9f78e1} %{F#0a81f5}%{+u}<ramp-volume>%{F-} <label-volume>
+label-muted = 🔇 muted
 label-muted-foreground = ${colors.secondary}
-
+;#9f78e1
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 󰕿
-ramp-volume-1 = 󰖀
-ramp-volume-2 = 󰕾
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+ramp-volume-3 = 🔊
 
 ; Right and Middle click
 click-right = pavucontrol
@@ -162,11 +163,11 @@ click-middle =  terminator -e 'alsamixer'
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "󰑭 "
+format-prefix = "📏 "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %gb_used%
-;
+;󰑭
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -180,12 +181,14 @@ format-underline = #4bffdc
 [module/backlight-acpi]
 type = internal/backlight
 card = intel_backlight
-format = %{A5:xbacklight -dec 5:}%{A4:xbacklight -inc 10:}%{u#ff9900}%{+u}<ramp> %{+u}<label> %{A} %{A}
+format = %{A5:xbacklight -dec 5:}%{A4:xbacklight -inc 10:}%{u#ff9900}%{+u}<ramp> %{+u}<label>%{A}%{A}
 label =  %percentage%% 
 ;
-ramp-0 =  
-ramp-1 =  
-ramp-2 =  
+ramp-0 =  🌜
+ramp-1 =  🌘
+ramp-2 =  🌗
+ramp-3 =  🌖
+ramp-4 =  🌕
 ramp-foreground = ${colors.foreground-alt}
 
 
@@ -203,21 +206,21 @@ content-background = #292d3e
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "󰍛 "
+format-prefix = %{A1:st -e htop:}📈 %{A}
+;󰍛
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #ffb52a
-label = %percentage:2%%
-
+label = %percentage:2%% 
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format-prefix=" "
+format-prefix="🌡"
 format-prefix-foreground = ${colors.foreground-alt}
 format = <ramp> <label>
-format-underline = #4bffdc
+format-underline = #9f78e1
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -243,7 +246,7 @@ label-connected =%{F#0a81f5}%{F-}%downspeed:9%
 
 format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = No 
+label-disconnected = No 󱛅
 label-disconnected-foreground = #f90000
 ;${colors.foreground-alt}
 
@@ -280,7 +283,7 @@ interval = 5
 date-alt = %b-%d(%a)
 time = %r
 time-alt = %r
-format-prefix =
+format-prefix =📆
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label =%{T2}%date% %time%%{T-}
@@ -291,8 +294,8 @@ battery = BAT1
 adapter = ACAD
 full-at = 99
 format-charging =  <label-charging>
-format-charging-underline = #9f78e1
-label-charging = %{F#0a81f5}%{F-} %percentage%%
+format-charging-underline = #4bffdc 
+label-charging = %{F#0a81f5}🔌%{F-} %percentage%%
 
 format-discharging =<ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
