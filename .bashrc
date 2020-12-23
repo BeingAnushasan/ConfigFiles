@@ -6,7 +6,7 @@
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 
 PATH="$HOME/.local/bin/statusbar/${PATH:+:${PATH}}"
-
+shopt -s autocd #allows to cd with just dir name
 
 [[ $- != *i* ]] && return
 
@@ -101,8 +101,20 @@ ex ()
 export VISUAL="/usr/bin/vim"
 export EDITOR="$VISUAL" 
 
+export HISTSIZE=-1
+export HISTFILESIZE=-1
 
 fortune -s
 #neofetch
+
+#some vim-like stuffs
+set -o vi
+bind -m vi-insert '\c-l':clear-screen
+bind -m vi-insert '\c-e':end-of-line
+bind -m vi-insert '\c-a':beginning-of-line
+bind -m vi-insert '\c-h':backward-kill-word
+bind -m vi-insert '\c-k':kill-line
+
+#starship prompt
 eval "$(starship init bash)"
-  
+
