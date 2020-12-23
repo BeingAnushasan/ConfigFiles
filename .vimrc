@@ -11,6 +11,16 @@ set ruler
 set background=dark
 set mouse=nicr
 set showmatch " show matching braces
+
+set undofile
+set undodir=/tmp
+
+"show tabs and spaces
+set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "bash-like-tab-completion-for-file-names
@@ -20,7 +30,7 @@ set wildmenu
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
-set hlsearch " highlight search results
+"set hlsearch " highlight search results
 set incsearch " set incremental search, like modern browsers
 
 
@@ -33,8 +43,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'leafoftree/vim-vue-plugin'
-
 
 " NerdTree configs
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -50,7 +60,7 @@ set laststatus=2
 "let g:lightline = {'colorscheme': 'darcula'}
 
 let g:lightline = {
-            \   'colorscheme': 'darcula',
+            \   'colorscheme': 'dracula',
             \   'active': {
             \       'left': [ [ 'mode', 'paste' ],
             \               [ 'gitbranch' ],
@@ -95,6 +105,10 @@ let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 
 call plug#end()
+
+"copy and paste from anywhere
+vnoremap <C-c> "+y
+map <C-p> "+p
 
 " Shortcutting split navigation
 map <C-Left> <C-w>h
