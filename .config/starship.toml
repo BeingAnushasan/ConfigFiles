@@ -17,16 +17,18 @@ add_newline = true
 [character]
 #success_symbol = "[👉](gold)"
 success_symbol = "[❯❯❯](yellow)"
-error_symbol = "[✗](bold red)"
+error_symbol = "[❯❯[❯](bold red)](yellow)"
 vicmd_symbol = "[vi ➜](bold green)"
 
 # show task completion time
 [cmd_duration]
 min_time = 500
-format = "[took](black) [$duration](black)"
+format = "[took](white) [$duration](white)"
 
 [directory]
-truncation_length = 8
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 1
 
 # show username
 [username]
@@ -38,7 +40,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[@](bold white)[$hostname](bold green) [in](bold black)"
+format =  "[@](bold white)[$hostname](bold blue)[:](bold white)"
 disabled = false
 
 
@@ -46,32 +48,25 @@ disabled = false
 [line_break]
 disabled = true
 
-#[git_status]
-#conflicted = "🏳"
-#ahead = "⇡${count}"
-#diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-#behind = "⇣${count}"
-#untracked = "🤷"
-#stashed = "📦"
-#modified = "📝"
-#staged.value = "++"
-#staged.style = "green"
-#staged_count.enabled = true
-#staged_count.style = "green"
-#renamed = "👅"
-#deleted = "🗑"
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+disabled = true
 
 [git_branch]
-symbol = "🌱 "
-#truncation_length = 4
+symbol = " "
+#truncation_length = 10
 truncation_symbol = ""
-
-[git_commit]
-commit_hash_length = 4
-
-#[git_state]
-#format = "[\\($state( $progress_current of $progress_total)\\)]($style) "
-#cherry_pick = "[🍒 PICKING](bold red)"
+format = "[$symbol\\[$branch\\]]($style) "
+#🌱
 
 [battery]
 full_symbol = "🔋"
@@ -86,9 +81,27 @@ style = "bold red"
 symbol = "+ "
 threshold = 4
 
-[status]
-style = "bg:blue"
-symbol = "💣 "
-format = "[\\[$symbol$status\\]]($style) "
-disabled = false
 
+[python]
+disabled = true
+
+[package]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[java]
+disabled = true
+
+[golang]
+disabled = true
+
+[aws]
+disabled = true
