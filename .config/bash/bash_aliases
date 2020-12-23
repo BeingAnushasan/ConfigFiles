@@ -32,6 +32,7 @@ fi
 
 
 alias cp="cp -i"                          # confirm before overwriting something
+alias mkdir='mkdir -pv'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
@@ -47,11 +48,12 @@ alias uu="sudo pacman -Syyu"
 alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
 alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'
-alias mysql='docker start 7b '
+alias mysql='ss start docker && docker start 7b '
 
 #quick paths
 alias i3config='vim .config/i3/config'
 alias polybarconfig='vim .config/polybar/config'
+alias cdc='cd ~/.config/'
 
 # git
 alias addup='git add -u'
@@ -64,3 +66,9 @@ alias commit='git commit -m'
 alias pull='git pull origin'
 alias push='git push origin'
 alias status='git status'
+
+# npm
+alias nrs='npm run serve'
+alias nrsf='npm run serve --fix'
+alias myip='curl ipinfo.io/ip'
+alias ports='netstat -tulanp'
