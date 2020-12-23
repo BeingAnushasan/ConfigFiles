@@ -18,10 +18,10 @@
 ;==========================================================
 ;
 [colors]
-;background = ${xrdb:color0:#222}
-background = #252a36
+background = ${xrdb:color0:#111}
+;background = #252a36
 ;insert aa after #  for transparency
-background-alt = #444
+background-alt = #c111
 ;foreground = ${xrdb:color7:#222}
 foreground = #7B9F35
 foreground-alt = #0a81f5 
@@ -60,9 +60,9 @@ font-2 = Termsynu:size=15:antialias=false;-2
 font-3 = FontAwesome:size=11;3
 font-4 = Noto Color Emoji:scale=11;2
 
-modules-left = i3 polybar-windows
-modules-center = date 
-modules-right =  wlan memory cpu temperature battery  backlight-acpi pulseaudio 
+modules-left = i3 polybar-windows 
+modules-center =  date 
+modules-right =  pipe wlan pipe memory pipe cpu pipe battery pipe backlight-acpi pipe pulseaudio pipe 
 
 tray-position = right
 tray-padding = 2
@@ -95,7 +95,7 @@ ws-icon-4 = 5;
 ws-icon-5 = 6; 
 ws-icon-6 = 7; 
 ws-icon-7 = 8;8
-ws-icon-8 = 9;9
+ws-icon-8 = 9;🎵
 ws-icon-default = ♟
 
 ; Only show workspaces on the same output as the bar
@@ -139,6 +139,17 @@ label-padding = 1
 interval = 1
 
 
+[module/cmus]
+type = custom/script
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
+
+format = <label>
+format-underline = ${colors.primary}
+label = %output%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -168,6 +179,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %gb_used%
 ;󰑭
+
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -192,15 +204,13 @@ ramp-4 =  🌕
 ramp-foreground = ${colors.foreground-alt}
 
 
-[module/arrow1]
+[module/pipe]
 ; grey to Blue
 type = custom/text
-content = "%{T2}%{T-}"
+content = "%{T2}|%{T-}"
 content-font = 2
 content-foreground = #8d62a9
 content-background = #292d3e
-
-
 
 
 [module/cpu]
@@ -211,6 +221,7 @@ format-prefix = %{A1:st -e htop:}📈 %{A}
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #ffb52a
 label = %percentage:2%% 
+;format-background = ${colors.background-alt}
 
 [module/temperature]
 type = internal/temperature
@@ -292,7 +303,7 @@ label =%{T2}%date% %time%%{T-}
 type = internal/battery
 battery = BAT1
 adapter = ACAD
-full-at = 99
+full-at = 100
 format-charging =  <label-charging>
 format-charging-underline = #4bffdc 
 label-charging = %{F#0a81f5}🔌%{F-} %percentage%%
@@ -301,7 +312,7 @@ format-discharging =<ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 label-discharging =  %percentage%%
 
-format-full-prefix = " "
+format-full-prefix = "󰂅 "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 label-full = 100% 
