@@ -15,6 +15,9 @@ set showmatch " show matching braces
 set undofile
 set undodir=/tmp
 
+"256 color
+set t_Co=256
+
 "show tabs and spaces
 set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
 set shiftwidth=4
@@ -44,16 +47,15 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'chrisbra/Colorizer'			" :ColorToggle  for showing color 
 "Plug 'leafoftree/vim-vue-plugin'
 
 " NerdTree configs
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinSize = 35
 let NERDTreeQuitOnOpen=1
-map <C-n> :NERDTreeToggle<CR>
-"autocmd VimEnter * NERDTree  "Keep nerdtree open at start
+map <C-n> :NERDTreeToggle<CR> "autocmd VimEnter * NERDTree  "Keep nerdtree open at start
 highlight! link NERDTreeFlags NERDTreeDir
-
 
 "lightline colorful indicator config
 set laststatus=2
@@ -61,44 +63,7 @@ set laststatus=2
 
 let g:lightline = {
             \   'colorscheme': 'dracula',
-            \   'active': {
-            \       'left': [ [ 'mode', 'paste' ],
-            \               [ 'gitbranch' ],
-            \               [ 'readonly', 'filetype', 'filename' ]],
-            \       'right': [ [ 'percent' ], [ 'lineinfo' ],
-            \               [ 'fileformat', 'fileencoding' ],
-            \               [ 'gitblame', 'currentfunction',  'cocstatus', 'linter_errors', 'linter_warnings' ]]
-            \   },
-            \   'component_expand': {
-            \   },
-            \   'component_type': {
-            \       'readonly': 'error',
-            \       'linter_warnings': 'warning',
-            \       'linter_errors': 'error'
-            \   },
-            \   'component_function': {
-            \       'fileencoding': 'helpers#lightline#fileEncoding',
-            \       'filename': 'helpers#lightline#fileName',
-            \       'fileformat': 'helpers#lightline#fileFormat',
-            \       'filetype': 'helpers#lightline#fileType',
-            \       'gitbranch': 'helpers#lightline#gitBranch',
-            \       'cocstatus': 'coc#status',
-            \       'currentfunction': 'helpers#lightline#currentFunction',
-            \       'gitblame': 'helpers#lightline#gitBlame'
-            \   },
-            \   'tabline': {
-            \       'left': [ [ 'tabs' ] ],
-            \       'right': [ [ 'close' ] ]
-            \   },
-            \   'tab': {
-            \       'active': [ 'filename', 'modified' ],
-            \       'inactive': [ 'filename', 'modified' ],
-            \   },
-            \   'separator': { 'left': '', 'right': '' },
-            \   'subseparator': { 'left': '', 'right': '' }
         \ }
-
-
 
 "devicons config
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
