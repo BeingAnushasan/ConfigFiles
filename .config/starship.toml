@@ -16,8 +16,10 @@ add_newline = true
 
 [character]
 #success_symbol = "[👉](gold)"
-success_symbol = "[❯❯❯](yellow)"
-error_symbol = "[❯❯[❯](bold red)](yellow)"
+#success_symbol = "[❯❯❯](yellow)"
+success_symbol = "[\\$](yellow)"
+error_symbol = "[\\$](bold red)"
+#error_symbol = "[❯❯[❯](bold red)](yellow)"
 vicmd_symbol = "[vi ➜](bold green)"
 
 # show task completion time

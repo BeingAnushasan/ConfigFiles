@@ -8,6 +8,15 @@ PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 PATH="$HOME/.local/bin/statusbar/${PATH:+:${PATH}}"
 shopt -s autocd #allows to cd with just dir name
 
+export VISUAL="/usr/bin/vim"
+export EDITOR="$VISUAL" 
+#export JAVA_HOME="/usr/lib/jvm/java-15-openjdk"
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+export HISTCONTROL=ignoreboth:erasedups
+
+
+
 [[ $- != *i* ]] && return
 
 colors() {
@@ -73,6 +82,8 @@ shopt -s expand_aliases
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
+shopt -s checkwinsize
+
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -97,12 +108,6 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-export VISUAL="/usr/bin/vim"
-export EDITOR="$VISUAL" 
-
-export HISTSIZE=-1
-export HISTFILESIZE=-1
 
 fortune -s
 #neofetch
