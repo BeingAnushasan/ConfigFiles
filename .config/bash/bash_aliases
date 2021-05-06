@@ -43,8 +43,8 @@ alias ll="exa -l"
 #alias ll="ls -lh"
 alias ss="sudo systemctl"
 alias sp="sudo pacman"
-alias u="sudo pacman -Syyu"
-alias uu="sudo pacman -Syyu"
+alias u="sudo pacman -Syu --noconfirm"
+alias uu="sudo pacman -Syu --noconfirm"
 alias docker="sudo docker"
 alias config='/usr/bin/git --git-dir=/home/tiger/ConfigFiles.git/ --work-tree=/home/tiger'
 alias cleanup='sudo pacman -Rs $(pacman -Qtdq)'

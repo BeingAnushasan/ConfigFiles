@@ -18,8 +18,8 @@
 ;==========================================================
 ;
 [colors]
-background = ${xrdb:color0:#111}
-;background = #252a36
+;background = ${xrdb:color0:#111}
+background = #a252a36
 ;insert aa after #  for transparency
 background-alt = #c111
 ;foreground = ${xrdb:color7:#222}
@@ -168,16 +168,37 @@ ramp-volume-3 = 🔊
 
 ; Right and Middle click
 click-right = pavucontrol
-click-middle =  terminator -e 'alsamixer'
+click-middle =  termite -e 'alsamixer'
 
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "📏 "
+;format-prefix = "📏 "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %gb_used%
+format = <bar-used> <label> 
+
+bar-used-indicator =📏 
+bar-used-width = 50
+bar-used-foreground-0 = #f9000
+bar-used-foreground-1 = #f90000
+bar-used-foreground-2 = #f90000
+bar-used-foreground-3 = #f90000
+bar-used-fill = 
+bar-used-empty = 
+bar-used-empty-foreground = #444444
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
 ;󰑭
 
 [module/filesystem]
@@ -216,7 +237,7 @@ content-background = #292d3e
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A1:st -e htop:}📈 %{A}
+format-prefix = %{A1:termite -e htop:}📈 %{A}
 ;󰍛
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #ffb52a
