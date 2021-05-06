@@ -5,10 +5,11 @@
   [[default]]
     background_darkness = 0.78
     cursor_color = "#aaaaaa"
-    font = Source Code Pro 12
+    font = JetBrains Mono NL 12
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
+    scrollback_infinite = True
     use_system_font = False
     copy_on_selection = True
 [layouts]
