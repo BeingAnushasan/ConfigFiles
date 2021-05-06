@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 
 " File tree
 Plug 'scrooloose/nerdtree'
+Plug 'neoclide/coc.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -54,7 +55,9 @@ Plug 'chrisbra/Colorizer'			" :ColorToggle  for showing color
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinSize = 35
 let NERDTreeQuitOnOpen=1
-map <C-n> :NERDTreeToggle<CR> "autocmd VimEnter * NERDTree  "Keep nerdtree open at start
+let NERDTreeChDirMode=2
+"autocmd VimEnter * NERDTree  "Keep nerdtree open at start
+map <C-n> :NERDTreeToggle<CR>
 highlight! link NERDTreeFlags NERDTreeDir
 
 "lightline colorful indicator config
@@ -80,3 +83,7 @@ map <C-Left> <C-w>h
 map <C-Down> <C-w>j
 map <C-Up> <C-w>k
 map <C-Right> <C-w>l
+
+"change tabs with ctrl+arrow
+map <C-Right> :tabn<cr>
+map <C-Left> :tabp<cr>
